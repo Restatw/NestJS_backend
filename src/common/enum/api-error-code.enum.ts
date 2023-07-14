@@ -1,0 +1,6 @@
+export enum ApiErrorCode {
+    SUCCESS = 200,
+    USER_ID_INVALID = 10001,
+    USER_NOTEXIST = 10002,
+    ARGUMENT_INVALID = 10003,
+}
