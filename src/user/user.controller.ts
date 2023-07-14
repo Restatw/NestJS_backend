@@ -5,10 +5,8 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiException } from 'src/common/filter/http-exception/api.exception';
 import { ApiErrorCode } from 'src/common/enum/api-error-code.enum';
 import { ArgumentsValidationPipe } from 'src/common/pipe/arguments-validation/arguments-validation.pipe';
-import { AuthGuard } from 'src/common/guard/auth/auth.guard';
 
 @Controller('user')
-@UseGuards(AuthGuard)
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
