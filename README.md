@@ -31,6 +31,8 @@
 ```bash
 $ npm install
 ```
+## Fix issue
+[#1](https://github.com/Restatw/NestJS_backend/issues/1) fix user bug
 
 ## Running the app
 
