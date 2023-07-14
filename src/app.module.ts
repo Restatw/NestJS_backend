@@ -26,7 +26,7 @@ const isProd = process.env.NODE_ENV == "production";
     // }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'db.sql',
+      database: 'database.sql',
       autoLoadEntities: true,
       synchronize: true,
     }),
