@@ -5,16 +5,18 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiException } from 'src/common/filter/http-exception/api.exception';
 import { ApiErrorCode } from 'src/common/enum/api-error-code.enum';
 import { ArgumentsValidationPipe } from 'src/common/pipe/arguments-validation/arguments-validation.pipe';
+import { Public } from 'src/auth/auth.guard';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Public()
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
-
+  
   @Get()
   findAll() {
     // throw new ApiException('用戶不存在', ApiErrorCode.USER_NOTEXIST)
