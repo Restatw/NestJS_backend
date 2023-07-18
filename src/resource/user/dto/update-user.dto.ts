@@ -27,6 +27,6 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
         default: 18,
     })
     @IsInt()
-    age: number;
+    age: number;    
 
 }

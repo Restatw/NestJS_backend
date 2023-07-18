@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
+import { UserModule } from './resource/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
@@ -9,6 +9,11 @@ import { AuthModule } from './auth/auth.module';
 import * as path from "path"
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth/auth.guard';
+import { AdminModule } from './resource/admin/admin.module';
+import { AgentModule } from './resource/agent/agent.module';
+import { VendorModule } from './resource/vendor/vendor.module';
+import { GameModule } from './resource/game/game.module';
+import { LogModule } from './resource/log/log.module';
 const isProd = process.env.NODE_ENV == "production";
 @Module({
   imports: [
@@ -32,6 +37,11 @@ const isProd = process.env.NODE_ENV == "production";
     }),
     UserModule,
     AuthModule,
+    AdminModule,
+    AgentModule,
+    VendorModule,
+    GameModule,
+    LogModule,
     
   ],
   controllers: [AppController],
