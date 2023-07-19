@@ -6,6 +6,7 @@ export interface Response<T> {
   data: T;
 }
 
+// 規格化回傳格式顯示
 @Injectable()
 export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> {
   intercept(
@@ -14,6 +15,11 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
   ): Observable<Response<T>> {
     return next
       .handle()
-      .pipe(map((data) => ({ ok: true ,code:200, describe: "SUCCESS", data })));
+      .pipe(map((data) => ({ 
+        ok: true,
+        code:200, 
+        data,
+        timestamp: new Date().toISOString(),
+      })));
   }
 }

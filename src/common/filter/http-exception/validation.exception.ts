@@ -1,15 +1,16 @@
 import { HttpException, HttpStatus } from "@nestjs/common";
 import { ValidationError } from "class-validator";
 import { ApiErrorCode } from "src/common/enum/api-error-code.enum";
+import { I18nPath } from "src/generated/i18n.generated";
 
 export class ValidationException extends HttpException {
     
-    private errorMessage: string;
+    private errorMessage: I18nPath;
     private errorCode: ApiErrorCode;
     private errorObject: ValidationError[];
 
     constructor(
-        errorMessage: string,
+        errorMessage: I18nPath,
         errorCode: ApiErrorCode,
         error: ValidationError[],
         statusCode: HttpStatus = HttpStatus.OK,
@@ -24,7 +25,7 @@ export class ValidationException extends HttpException {
         return this.errorCode;
     }
 
-    getErrorMessage(): string {
+    getErrorMessage(): I18nPath {
         return this.errorMessage;
     }
     

@@ -1,0 +1,13 @@
+{
+    "app" : {
+        "lang": "English",
+        "title": "Title",
+        "description": "Description"
+    },
+    "exception" : {
+        "api" : {   
+            "value_invalid": "data invalid",
+            "user_name_is_used": "user name is used"
+        }
+    }
+}

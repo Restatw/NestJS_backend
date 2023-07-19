@@ -19,5 +19,6 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor) // response interceptor
   app.useGlobalPipes(new ArgumentsValidationPipe()) // valid pipe
   await app.listen(3000);
+  
 }
 bootstrap();

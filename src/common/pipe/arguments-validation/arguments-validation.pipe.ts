@@ -15,7 +15,7 @@ export class ArgumentsValidationPipe implements PipeTransform {
     const object = plainToInstance(metatype, value);
     const errors = await validate(object);
     if (errors.length > 0) {
-      throw new ValidationException('Validation failed', ApiErrorCode.ARGUMENT_INVALID, errors);
+      throw new ValidationException("test.exception.api.value_invalid", ApiErrorCode.ARGUMENT_INVALID, errors);
     }
     return value;
   }

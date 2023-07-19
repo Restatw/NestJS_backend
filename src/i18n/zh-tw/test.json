@@ -1,0 +1,13 @@
+{
+    "app" : {
+        "lang": "繁體中文",
+        "title": "主題",
+        "description": "敘述"
+    },
+    "exception" : {
+        "api" : {
+            "value_invalid": "資料格式不符合",
+            "user_name_is_used": "會員名稱已經被使用"
+        }
+    }
+}
