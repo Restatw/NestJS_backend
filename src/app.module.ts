@@ -17,8 +17,6 @@ import { LogModule } from './resource/log/log.module';
 import { AcceptLanguageResolver, CookieResolver, HeaderResolver, I18nJsonLoader ,I18nModule, QueryResolver } from 'nestjs-i18n';
 
 const isProd = process.env.NODE_ENV == "production";
-
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -43,7 +41,8 @@ const isProd = process.env.NODE_ENV == "production";
 
     }),
     I18nModule.forRoot({
-      fallbackLanguage: 'en',
+      fallbackLanguage:  process.env._LANG ?? 'en',
+
       loaderOptions: {
         path: path.join(__dirname, '/i18n/'),
         watch: true,
