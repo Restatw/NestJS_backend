@@ -14,6 +14,7 @@ export type I18nTranslations = {
                 "user_name_is_used": string;
             };
         };
+        "dto": {};
     };
 };
 export type I18nPath = Path<I18nTranslations>;

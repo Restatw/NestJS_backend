@@ -8,11 +8,20 @@ export class User {
     @Column({length: 32})
     username: string
 
+    @Column({length: 32})
+    account: string
+
     @Column({length: 64})
     password: string
 
+    @Column({length: 256})
+    email: string
+    
+    @Column({length: 16})
+    phone: string
+
     @Column()
-    age: number
+    enable: boolean
 
     @CreateDateColumn()
     create_at: Date;

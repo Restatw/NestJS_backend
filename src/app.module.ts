@@ -19,9 +19,13 @@ import { AcceptLanguageResolver, CookieResolver, HeaderResolver, I18nJsonLoader 
 const isProd = process.env.NODE_ENV == "production";
 @Module({
   imports: [
+
+    // ENV config
     ConfigModule.forRoot({
       envFilePath: [ isProd ? path.resolve(".env.prod") : path.resolve(".env") ]
     }),
+
+    // TypeORM Datatabase
     TypeOrmModule.forRoot({
 
       // MYSQL
@@ -40,6 +44,8 @@ const isProd = process.env.NODE_ENV == "production";
       synchronize: true,
 
     }),
+
+    // i18n translation 
     I18nModule.forRoot({
       fallbackLanguage:  process.env._LANG ?? 'en',
 
@@ -53,6 +59,8 @@ const isProd = process.env.NODE_ENV == "production";
         AcceptLanguageResolver,
       ],
     }),
+
+    // resource moddule
     UserModule,
     AuthModule,
     AdminModule,

@@ -4,6 +4,9 @@
         "title": "主題",
         "description": "敘述"
     },
+    "dto": {
+        
+    },
     "exception" : {
         "api" : {
             "value_invalid": "資料格式不符合",

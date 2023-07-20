@@ -8,11 +8,11 @@ export class AuthService {
         private userService: UserService,
         private jwtService: JwtService) {}
 
-    async signIn(username: string, pass: string): Promise<any> {
+    async signIn(account: string, pass: string): Promise<any> {
 
         const salt = await bcrypt.genSalt();
         // pass = await bcrypt.hash( pass , 10)
-        const user = await this.userService.findByUsername(username);
+        const user = await this.userService.findByUserAccount(account);
         if( ! await bcrypt.compare( pass , user?.password ) ) {
             throw new UnauthorizedException()
         }
@@ -20,9 +20,12 @@ export class AuthService {
         const payload = { 
             sub: user.id, 
             username: user.username,
+            account: user.account,
             // password: user.password,
-            age: user.age,
-
+            email: user.email,
+            phone: user.phone,
+            create_at: user.create_at,
+            update_at: user.update_at,
         }
 
         const access_token = await this.jwtService.signAsync(payload);

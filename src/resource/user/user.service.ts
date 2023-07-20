@@ -23,7 +23,8 @@ export class UserService {
     } 
 
     createUserDto.password = await bcrypt.hash( createUserDto.password , 10)
-    return await this.userRepository.save(createUserDto)
+    const newUser = { enable: true , ...createUserDto }
+    return await this.userRepository.save(newUser)
   }
 
   async findAll() {
@@ -37,11 +38,15 @@ export class UserService {
   async findByUsername(username: string) {
     return await this.userRepository.findOne({where:{username}})
   }
+
+  async findByUserAccount(account: string) {
+    return await this.userRepository.findOne({where:{account}})
+  }
   
 
   async update(id: string, updateUserDto: UpdateUserDto) {
     const user = await this.userRepository.findOne({where:{id}});
-    user.age = updateUserDto.age;
+    user.email = updateUserDto.email;
     user.username = updateUserDto.username;
     user.password = updateUserDto.password;
     const { password, ...userEntity } = await this.userRepository.save(user);
