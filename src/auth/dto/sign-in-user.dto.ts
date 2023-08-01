@@ -6,10 +6,10 @@ export class SignInUserDto {
     @ApiProperty({
         description: 'The account user name',
         minimum: 4,
-        default: "username",
+        default: "account",
     })
     @IsString()
-    username: string;
+    account: string;
 
     @ApiProperty({
         description: 'The account user password',
