@@ -20,6 +20,9 @@ export class User {
     @Column({length: 16})
     phone: string
 
+    @Column({length: 256, nullable: true, default: null})
+    token: string
+
     @Column()
     enable: boolean
 

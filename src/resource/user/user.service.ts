@@ -53,6 +53,13 @@ export class UserService {
     return userEntity;
   }
 
+  async updateToken(id: string, token: string) {
+    const user = await this.userRepository.findOne({where:{id}});
+    user.token = token;
+    const { password, ...userEntity } = await this.userRepository.save(user);
+    return userEntity;
+  }
+
   async remove(id: string) {
     const user = await this.userRepository.findOne({where:{id}});
     return this.userRepository.remove(user);

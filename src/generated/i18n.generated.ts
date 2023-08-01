@@ -13,8 +13,11 @@ export type I18nTranslations = {
                 "value_invalid": string;
                 "user_name_is_used": string;
             };
+            "auth": {
+                "token_invalid": string;
+                "has_login_from_other_device": string;
+            };
         };
-        "dto": {};
     };
 };
 export type I18nPath = Path<I18nTranslations>;

@@ -12,7 +12,7 @@ export class AuthService {
 
         const salt = await bcrypt.genSalt();
         // pass = await bcrypt.hash( pass , 10)
-        const user = await this.userService.findByUserAccount(account);
+        let user = await this.userService.findByUserAccount(account);
         if( ! await bcrypt.compare( pass , user?.password ) ) {
             throw new UnauthorizedException()
         }
@@ -22,15 +22,17 @@ export class AuthService {
             username: user.username,
             account: user.account,
             // password: user.password,
-            email: user.email,
-            phone: user.phone,
+            // email: user.email,
+            // phone: user.phone,
             create_at: user.create_at,
             update_at: user.update_at,
         }
-
+        
         const access_token = await this.jwtService.signAsync(payload);
 
-        // user.sid = access_token;
+        if( (await this.userService.updateToken( user.id , access_token )).token != access_token ) {
+            throw new UnauthorizedException();
+        }
 
         return {
             access_token

@@ -7,12 +7,7 @@ import { jwtConstants } from './constants';
 
 @Module({
   imports: [
-    UserModule,
-    JwtModule.register({
-      global: true,
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: process.env.EXPIRES_IN ? parseInt( process.env.EXPIRES_IN ) : 60 },
-    }),
+    UserModule
   ],
   controllers: [AuthController],
   providers: [

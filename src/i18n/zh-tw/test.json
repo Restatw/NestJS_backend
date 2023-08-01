@@ -4,13 +4,14 @@
         "title": "主題",
         "description": "敘述"
     },
-    "dto": {
-        
-    },
     "exception" : {
         "api" : {
             "value_invalid": "資料格式不符合",
             "user_name_is_used": "會員名稱已經被使用"
+        },
+        "auth" : {
+            "token_invalid" : "憑證無效",
+            "has_login_from_other_device": "登入從其他裝置"
         }
     }
 }

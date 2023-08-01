@@ -8,6 +8,10 @@
         "api" : {   
             "value_invalid": "data invalid",
             "user_name_is_used": "user name is used"
+        },
+        "auth" : {
+            "token_invalid" : "token invalid",
+            "has_login_from_other_device": "account login from other device"
         }
     }
 }
