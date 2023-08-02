@@ -13,7 +13,7 @@ export class AuthService {
         const salt = await bcrypt.genSalt();
         // pass = await bcrypt.hash( pass , 10)
         let user = await this.userService.findByUserAccount(account);
-        if( ! await bcrypt.compare( pass , user?.password ) ) {
+        if( ! user || ! await bcrypt.compare( pass , user?.password ) ) {
             throw new UnauthorizedException()
         }
         
